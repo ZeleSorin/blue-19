@@ -1,0 +1,64 @@
+
+            ██████╗░███████╗███╗░░██╗████████╗░█████╗░░██████╗░░█████╗░
+            ██╔══██╗██╔════╝████╗░██║╚══██╔══╝██╔══██╗██╔════╝░██╔══██╗
+            ██████╔╝█████╗░░██╔██╗██║░░░██║░░░███████║██║░░██╗░██║░░██║
+            ██╔═══╝░██╔══╝░░██║╚████║░░░██║░░░██╔══██║██║░░╚██╗██║░░██║
+            ██║░░░░░███████╗██║░╚███║░░░██║░░░██║░░██║╚██████╔╝╚█████╔╝
+            ╚═╝░░░░░╚══════╝╚═╝░░╚══╝░░░╚═╝░░░╚═╝░░╚═╝░╚═════╝░░╚════╝░
+README
+
+    This Pentago game project was created for a school project for the University of Twente.
+    It was created by: Sorin Zele and Bram Ottenschot.
+
+    All the files are sorted in packages, the packages contain the following:
+    board:
+        Board: contains all the logic of the board, such as placing a marble, rotating a quadrant or checking win conditions.
+
+    mark:
+        Mark: EMPTY, BLACK and WHITE. contains the enum mark and a method that lets you get the opposite mark of a provided mark.
+
+    player:
+        Player: is an abstract class where only the determination of moves have to be implemented.
+        HumanPlayer: a class that extends the Player abstract class, the determination of moves are determined in a way
+                        that a human can decide what moves he or she wants to make.
+        ComputerPlayer: a class that extends the Player abstract class, the determination of moves are determined by a
+                        strategy that must be provided.
+        ServerPlayer: a class that extends the Player abstract class, the determination of moves depends on the input of a server.
+
+    strategy:
+        Strategy: a interface that has methods that can determine a move when given a board.
+        NaiveStrategy: a class that implements the determine move methods in a way that it will return random possible moves.
+        SmartStrategy: a class that implements the determine move methods in a way that it tries to return the best possible move.
+
+    server:
+        GameClient: an interface of a client that can connect and interact with a server.
+        Client: a class that implements the GameClient interface, it can connect to a server.
+        GameServer: an interface of a server that can connect and interact with a client.
+        Server: a class that implements the GameServer interface.
+        Pentago: a TUI that is connect to a Client class.
+        ClientHandler: can send and receive messages from the server to the connected client and the other way around,.
+        ServerGame: If a game is being played on the server, this class can keep track of the moves and terminate ones the game is over.
+
+    test:
+        Several test cases that test the game logic of this program.
+
+
+    How to use this program:
+        to use the client, the user first has to start up the program.
+        While following the TUI, the user inserts an address of a server/ip-address, a port number, and a
+        finally an username.
+
+        after this initialization phase, the user can type multiple commands to navigate trough the
+        program, if the user wants more information about he possible commands, he or she can type HELP, this
+        prints a handy help-menu.
+
+        If a user wants to set up a server, the user has to start 'Server' and input a port that is free. if this is done
+        the user can handle multiple clients.
+
+    Libraries:
+        temurin-11: to run the program
+        Junit5.7.0: we used JUnit to test the game logic of the this program
+
+    Testing:
+        the Board was thoroughly tested with several JUnit tests
+        furthermore we did systemtest on the functionality of the Client-Server concept, these are worked out in the report

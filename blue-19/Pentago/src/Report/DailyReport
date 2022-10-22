@@ -1,0 +1,17 @@
+This part of the report contains all implementations , changes and design choices made up until 21/01/2022
+
+    /** GAME IMPLEMENTATION **\
+
+We have chosen to implement the Pentago game using the same method that was provided to us in the week 5 TicTacToe game
+due to the existing code and resources . We have implemented the game as a length 36 array holding all the posible moves
+on the board. We adapted the toString method of the Board class to accommodate the new time of board consisting of 4
+quadrants each having the possibility to rotate counter clockwise or clockwise.
+The major changes were on the hasDiagonal method were we did a little bit of hard-coding in checking the possible
+winning diagonals.
+As per AI strategies, there will be two , one Naive and one Smart strategy which can be selected as opponents at the
+beginning of any game .
+
+Up to this point we had really insignificant bugs, some minor IndexOutOfBounds exceptions due to the wrong implementation
+of the hasDiagonal and rotateBoard. Sorin tried to implement the rotateBoard method using matrices and rotating those,
+but Bram had a better and faster idea, at the end Bram's idea was implemented.
+
